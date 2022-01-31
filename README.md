@@ -9,10 +9,10 @@ I hope that u already setup your environment for react-native
 
 This app will only work on android right now 
 
-If u want to setup for ios than u will be also setup configuration of dependencies aka third party liabraries for ios. 
+If u want to setup for ios than You will be also setup configuration of dependencies aka third party liabraries for ios visiting to their respective npm liabrary websource or their own official website. 
 
 step 1: npm install
 
 step 2: npx react-native run-android
 
-Thank You for visiting
+Thank's for your visiting Be happy and Be safe.
