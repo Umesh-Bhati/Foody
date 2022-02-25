@@ -1,10 +1,11 @@
-import React, {useContext, useRef, useState} from 'react';
+import React, {useContext} from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   Alert,
   ScrollView,
+  LogBox
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
@@ -13,19 +14,11 @@ import {COLORS} from '../../constants/themes';
 import {CartContext} from '../../context';
 import UniversalButton from '../../components/home/UniversalButton';
 
-const Cart = ({navigation, route}) => {
+const Cart = ({navigation}) => {
   const {cartData, dispatchCart} = useContext(CartContext);
 
 
-  let row =useRef([])
-  let prevOpenedRow;
-
- function  closeRow(index) {
-    if (prevOpenedRow && prevOpenedRow !== row[index]) {
-		prevOpenedRow.close();
-    }
-    prevOpenedRow = row.current[index];
-}
+ 
 
   
   const RenderRight = ({onPress}) => {
@@ -101,11 +94,9 @@ const Cart = ({navigation, route}) => {
                     }) 
                  }
                   }
-                  ref={ref => row.current[k] = ref}
-                  key={k}
-                  onSwipeableOpen={closeRow(k)}
                 />
               )}
+              key={k}
               containerStyle={{
                 marginVertical: 10,
               }}>

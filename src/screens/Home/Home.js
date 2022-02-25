@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {FlatList, StyleSheet, Text, ScrollView} from 'react-native';
+import {FlatList, StyleSheet, Text, ScrollView, View} from 'react-native';
 import {Search, PlateCard, OptionScroll} from '../../components/home';
 import {optionData,PlateData } from '../../constants/dummyData';
 
@@ -24,7 +24,9 @@ const [active,  setActive] = useState(0)
       <OptionScroll title={i.title} key={i.id} index={k} active={active} onPress={() => setActive(k)} />
       )}
      </ScrollView>
-      <FlatList
+      {
+        active === 0 ? (
+          <FlatList
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         data={PlateData}
@@ -41,6 +43,17 @@ const [active,  setActive] = useState(0)
         )}
         keyExtractor={i => i.id}
       />
+        ): (
+        
+            <Text style={{
+            fontFamily: "SF-Pro-Rounded-Bold",
+            textAlign:"center",
+            textAlignVertical: "center",
+            fontSize: 25,
+            marginTop: 100
+          }} >No Item Yet...</Text>
+        )
+      }
     </ScrollView>
   );
 }

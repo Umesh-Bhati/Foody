@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Image, Modal, Text, TouchableOpacity, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MainNavigator from './MainNavigator';
 import {COLORS} from '../constants/themes';

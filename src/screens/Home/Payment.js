@@ -1,8 +1,7 @@
-import React, {useContext, useReducer, useRef, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {View, Text, ScrollView, TouchableOpacity, Modal} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Radio from 'react-native-vector-icons/MaterialIcons';
-import {useEffect} from 'react/cjs/react.development';
 import {UniversalButton} from '../../components/home';
 import {COLORS} from '../../constants/themes';
 import {CartContext} from '../../context';
@@ -12,26 +11,24 @@ const Payment = () => {
   const [activeDel, setActiveDel] = useState({b1: true, b2: false});
   const [modalVisible, setModalVisible] = useState(false);
   const {cartData} = useContext(CartContext);
-  const [total, setTotal] = useState(0) 
-
- 
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    let sum = 0
-   cartData.forEach(element => {
-     sum += element.qty * element.price
-   });
-   setTotal(sum)
-   return () => setTotal(0)
+    let sum = 0;
+    cartData.forEach(element => {
+      sum += element.qty * element.price;
+    });
+    setTotal(sum);
+    return () => setTotal(0);
   }, []);
 
   return (
     <>
       <ScrollView
         contentContainerStyle={{
-          // flex: 1,
           paddingHorizontal: 30,
-        }} showsVerticalScrollIndicator={false} >
+        }}
+        showsVerticalScrollIndicator={false}>
         <View>
           <Text
             style={{
@@ -75,6 +72,7 @@ const Payment = () => {
                 name="credit-card-alt"
                 color={COLORS.primary}
                 title="Card"
+                onPress={() => setActive({b1: true, b2: false})}
               />
               <View
                 style={{
@@ -84,7 +82,12 @@ const Payment = () => {
                   opacity: 0.7,
                 }}
               />
-              <PayItem name="bank" color={'#EB4796'} title="Bank account" />
+              <PayItem
+                name="bank"
+                color={'#EB4796'}
+                title="Bank account"
+                onPress={() => setActive({b1: false, b2: true})}
+              />
             </View>
           </View>
         </View>
@@ -121,16 +124,16 @@ const Payment = () => {
                 onPress={() => setActiveDel({b1: false, b2: true})}
               />
             </View>
-
             <View
               style={{
                 flex: 3,
               }}>
-              <View
+              <TouchableOpacity
                 style={{
                   flex: 1,
                   justifyContent: 'center',
-                }}>
+                }} 
+                onPress={() => setActiveDel({b1: true, b2: false})} >
                 <Text
                   style={{
                     fontFamily: 'SF-Pro-Rounded-Regular',
@@ -139,7 +142,7 @@ const Payment = () => {
                   }}>
                   Door delivery
                 </Text>
-              </View>
+              </TouchableOpacity>
               <View
                 style={{
                   backgroundColor: 'gray',
@@ -148,11 +151,12 @@ const Payment = () => {
                   opacity: 0.7,
                 }}
               />
-              <View
+              <TouchableOpacity
                 style={{
                   flex: 1,
                   justifyContent: 'center',
-                }}>
+                }} 
+                onPress={() => setActiveDel({b1: false, b2: true})} >
                 <Text
                   style={{
                     fontFamily: 'SF-Pro-Rounded-Regular',
@@ -161,7 +165,7 @@ const Payment = () => {
                   }}>
                   Pick-up
                 </Text>
-              </View>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -191,7 +195,7 @@ const Payment = () => {
               fontWeight: '600',
             }}
             numberOfLines={1}>
-           ₹ {total}/-
+            ₹ {total}/-
           </Text>
         </View>
         <UniversalButton
@@ -200,6 +204,7 @@ const Payment = () => {
           onPress={() => setModalVisible(true)}
         />
       </ScrollView>
+       {/* Modal */}
       <Modal visible={modalVisible} transparent={true} animationType="fade">
         <TouchableOpacity
           style={{
@@ -225,8 +230,7 @@ const Payment = () => {
                 textAlign: 'center',
                 color: 'black',
               }}>
-              {' '}
-              Thanks For Your Order{' '}
+              Thanks For Your Order
             </Text>
             <Text
               style={{
@@ -246,17 +250,16 @@ const Payment = () => {
 
 export default Payment;
 
-// Modal
-
 // Creating PayItem
 
-const PayItem = ({name, title, color}) => (
-  <View
+const PayItem = ({name, title, color, onPress}) => (
+  <TouchableOpacity
     style={{
       flex: 1,
       alignItems: 'center',
       flexDirection: 'row',
-    }}>
+    }}
+    onPress={onPress}>
     <View
       style={{
         height: 50,
@@ -280,7 +283,7 @@ const PayItem = ({name, title, color}) => (
         {title}
       </Text>
     </View>
-  </View>
+  </TouchableOpacity>
 );
 
 //Creating RadioButton
