@@ -7,7 +7,7 @@ export default function Search({onFocus, onChangeText}) {
             styles.container
         } >
             <Image source={icons.search} />
-            <TextInput style={styles.text} placeholder='Search' numberOfLines={1} onFocus={onFocus} onChangeText={onChangeText} />
+            <TextInput style={styles.text} placeholderTextColor="gray" placeholder='Search' numberOfLines={1} onFocus={onFocus} onChangeText={onChangeText} />
         </View>
     )
 }
@@ -25,7 +25,8 @@ container:{
     marginVertical:15
 },
 text:{
-   // fontFamily: "SF-Pro-Rounded-Semibold",
-    paddingLeft:10
+     fontFamily: "SF-Pro-Rounded-Semibold",
+    paddingLeft:10,
+    
 }
 })

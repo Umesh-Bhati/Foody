@@ -25,7 +25,7 @@ const Search = ({navigation}) => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Icon name="search" size={100} />
+        <Icon name="search" size={100} color="gray" />
         <Text
           style={{
             fontFamily: 'SF-Pro-Rounded-Bold',
@@ -41,7 +41,8 @@ const Search = ({navigation}) => {
             fontSize: 15,
             textAlign: 'center',
             marginHorizontal: 50,
-          }}>
+            color: "gray"
+          }}  >
           Try searching the item with a different keyword.
         </Text>
       </View>

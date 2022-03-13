@@ -50,7 +50,8 @@ const [active,  setActive] = useState(0)
             textAlign:"center",
             textAlignVertical: "center",
             fontSize: 25,
-            marginTop: 100
+            marginTop: 100,
+            color:"gray"
           }} >No Item Yet...</Text>
         )
       }

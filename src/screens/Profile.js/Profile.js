@@ -155,6 +155,7 @@ const Form = ({title}) => (
         fontFamily: 'SF-Pro-Rounded-Semibold',
         fontSize: 20,
         textAlign: 'left',
+        color: "gray"
       }}>
       {title}
     </Text>
@@ -162,8 +163,10 @@ const Form = ({title}) => (
       placeholder={title}
       style={{
         borderBottomWidth: 2,
+        color: "black",
         borderBottomColor: 'gray',
       }}
+      placeholderTextColor="gray"
     />
   </View>
 );

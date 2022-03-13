@@ -12,7 +12,7 @@ export default function OptionScroll({title, active, index, onPress}) {
       ]}
       onPress={onPress}>
       <Text
-        style={[styles.title, {color: active === index ? COLORS.primary : null}]}>
+        style={[styles.title, {color: active === index ? COLORS.primary : "gray"}]}>
         {title}
       </Text>
       {
@@ -44,5 +44,6 @@ const styles = StyleSheet.create({
     fontFamily: 'SF-Pro-Rounded-Regular',
     fontSize: 17,
     lineHeight: 25,
+    fontWeight: "700"
   },
 });

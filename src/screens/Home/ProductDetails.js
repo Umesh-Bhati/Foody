@@ -61,6 +61,7 @@ export default function ProductDetails({navigation, route}) {
           <Text
             style={{
               fontFamily: 'SF-Pro-Rounded-Regular',
+              color: "black"
             }}>
             Sunt enim eu aute laborum amet ut aliqua amet esse velit. Elit sint
             aliquip dolore enim fugiat veniam labore laboris incididunt eiusmod
@@ -85,6 +86,7 @@ export default function ProductDetails({navigation, route}) {
           <Text
             style={{
               fontFamily: 'SF-Pro-Rounded-Regular',
+              color: "black"
             }}>
             Sunt enim eu aute laborum amet ut aliqua amet esse velit. Elit sint
             aliquip dolore enim fugiat veniam labore laboris incididunt eiusmod

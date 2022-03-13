@@ -31,7 +31,7 @@ const StackNavigator = () => {
           ),
           headerRight: () => (
             <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-              <Icon size={25} name="shopping-cart" />
+              <Icon size={25} name="shopping-cart" color={"gray"} />
               {cartData.length ? (
                 <View
                   style={{
@@ -58,7 +58,7 @@ const StackNavigator = () => {
         options={({navigation})=>({
           headerRight: () => (
             <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-              <Icon size={25} name="shopping-cart" />
+              <Icon size={25} name="shopping-cart" color="gray" />
               {cartData.length ? (
                 <View
                   style={{

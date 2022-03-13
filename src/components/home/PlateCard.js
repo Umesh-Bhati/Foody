@@ -10,7 +10,7 @@ export default function PlateCard({img, title, price, onPress, style}) {
         <Image source={img} style={styles.img} />
       </View>
       <Text style={[styles.h2, {marginTop: 20}]} numberOfLines={2}>
-        {title}
+        {title}..
       </Text>
       <Text style={styles.price}>₹ {price}/-</Text>
     </TouchableOpacity>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: 'black',
     lineHeight: 22,
-    width: '60%',
+    width: '70%',
     textAlign: 'center',
   },
   price: {

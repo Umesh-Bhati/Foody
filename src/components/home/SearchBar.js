@@ -28,8 +28,9 @@ const SearchBar = ({onPress, onChangeText, value}) => {
           <Icon name='arrow-back' size={25}  color={"black"} />
           </TouchableOpacity>
            <TextInput style={{
-               paddingLeft:30
-           }} placeholder='Search Products' onSubmitEditing={onChangeText} ref={ref} value={value} />
+               paddingLeft:30,
+               color: "black"
+           }} placeholder='Search Products' onSubmitEditing={onChangeText} placeholderTextColor="gray" ref={ref} value={value} />
         </View>
     )
 }
